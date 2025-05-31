@@ -45,19 +45,23 @@ class Partitura {
         console.log(`Clave: ${semitons} semitons`)
     }
 
-    setInstrumento(instrumento) {
+    setInstrumento() {
         // Informações do instrumento
-        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['part-name'])
-        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['part-abbreviation'])
-        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['score-instrument'][0]['instrument-name'])
-        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['score-instrument'][0]['instrument-sound'])
+        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['part-name']) //Nome
+        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['part-abbreviation']) //Abreviação
+        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['score-instrument'][0]['instrument-name']) //Nome
+        console.log(this.partitura['score-partwise']['part-list'][0]['score-part'][0]['score-instrument'][0]['instrument-sound']) //Reprodução MIDI
         
         
         // Informações de pauta do instrumento
-        console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['transpose'][0]['diatonic'])
+        console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['transpose'][0]['diatonic']) //Escala Diatonica para Transpor
         console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['transpose'][0]['chromatic'])
         console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['transpose'][0]['octave-change'])
 
+
+        //Clave
+        console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['clef'][0]['sign'])
+        console.log(this.partitura['score-partwise']['part'][0]['measure'][0]['attributes'][0]['clef'][0]['line'])
     }
 
     transporNotas(semitons) {

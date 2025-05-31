@@ -1,18 +1,14 @@
-// importações
-const { Partitura } = require('./modules/Partitura.js')
-const instrumentos = require('./models/Instrumento.js')
+const { Partitura } = require('./module/Partitura')
 const path = require('path')
-const app = require('./config/config.js')
 
+// Estancia o Objeto
+let part = new Partitura(path.join(__dirname + '/parts/partitura.musicxml'))
 
-// rotas
-app.get('/', (req, res) => {
-    res.render('index')
-})
+// Inicializa
+part.inicializar().then(() => {
+    // Sua Lógica
 
-// Outros
-const PORTA = 2020
-app.listen(PORTA, () => {
-    console.log(`Servidor rodando em: http://localhost:${PORTA}`)
+    // Salva
+    part.salvarXML(path.join(__dirname + '/parts/music.musicxml'))
 })
 
